@@ -1,0 +1,94 @@
+*{
+    color: #666;
+}
+h1{
+    font-size: 4em;
+}
+h2{
+    font-size: 2.8em;
+}
+header span{
+    display: inline-block;
+}
+.navbar-collapse{
+    flex-grow: 0 !important;
+}
+.carousel-item{
+    height: 700px;
+    background: var(--data-url) no-repeat;
+    background-size: cover;
+}
+.carousel-caption{
+    bottom: 50%;
+    transform: translateY(50%);
+}
+.background-slider{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.about{
+    padding: 150px 0;
+    background: url('/images/about-bg.jpg') no-repeat top center;
+}
+.maps iframe{
+    width: 100%;
+    height: 400px;
+}
+
+@media screen and (max-width: 1000px) {
+    header span:nth-child(2){
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+    header .text-end{
+        text-align: start !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    h1{
+        font-size: 3em;
+    }
+    h2{
+        font-size: 2.2em;
+    }
+    header span:nth-child(2){
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+    header .text-end{
+        text-align: start !important;
+    }
+    .carousel-item img{
+        min-height: 400px;
+    }
+    .about{
+        background-size: cover;
+    }
+    .booking h2{
+        margin-top: 50px !important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    h1{
+        font-size: 2.8em;
+    }
+    h2{
+        font-size: 2em;
+    }
+    p{
+        font-size: 0.8em;
+    }
+    .about{
+        padding: 100px 0;
+    }
+}
