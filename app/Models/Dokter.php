@@ -15,4 +15,9 @@ class Dokter extends Model
     {
         return Dokter::join('jadwal', 'jadwal.kd_dokter', '=', 'dokter.kd_dokter')->where('dokter.nm_dokter', 'like', '%' . $name . '%')->get();
     }
+
+    public static function getDokter($name)
+    {
+        return Dokter::where('nm_dokter', 'like', '%' . $name . '%')->get();
+    }
 }

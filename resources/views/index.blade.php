@@ -2,6 +2,7 @@
 
 @include('components.header')
 @section('body')
+
 <body class="mt-5 pt-5">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
@@ -68,21 +69,21 @@
             <h2 class="text-center">Dokter Kami</h2>
             <div class="row mt-5">
                 @foreach ($dokters as $dokter)
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img src="/images/dokter-default.png" class="card-img-top" alt="image dokter">
-                            <div class="card-body">
-                                <h5 class="card-title">{{$dokter->nm_dokter}}</h5>
-                                <p class="card-text">DOKTER GIGI DAN MULUT</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <i class="bi bi-telephone-fill text-success"></i> HP/Telp. {{$dokter->no_telp}} <br>
-                                    <i class="bi bi-envelope text-success"></i> No SIP. {{$dokter->no_ijin_praktek}}
-                                </li>
-                            </ul>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="/images/dokter-default.png" class="card-img-top" alt="image dokter">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$dokter->nm_dokter}}</h5>
+                            <p class="card-text">DOKTER GIGI DAN MULUT</p>
                         </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="bi bi-telephone-fill text-success"></i> HP/Telp. {{$dokter->no_telp}} <br>
+                                <i class="bi bi-envelope text-success"></i> No SIP. {{$dokter->no_ijin_praktek}}
+                            </li>
+                        </ul>
                     </div>
+                </div>
                 @endforeach
                 <a class="d-flex justify-content-center" href="/dokter"><button class="btn btn-primary">Lebih Banyak</button></a>
             </div>
@@ -97,10 +98,10 @@
                 <table class="table table-borderless">
                     <tbody>
                         <tr>
-                            <th class="text-end" style="width: 20%; vertical-align: middle;">Keyword</th>
+                            <th class="text-end" style="width: 20%; vertical-align: middle;">Cari</th>
                             <td style="width: 1%; vertical-align: middle;">:</td>
-                            <td style="width: 60%;"><input type="text" id="keyword" class="form-control" style="width: 100%;" placeholder="Noor Afandi"></td>
-                            <td style="width: auto;"><button class="btn btn-warning text-white fw-bold">Cari</button></td>
+                            <td style="width: 60%;"><input type="text" id="keyword" class="form-control" style="width: 100%;" placeholder="Nama Dokter"></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>

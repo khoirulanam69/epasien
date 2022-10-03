@@ -21,3 +21,4 @@ Route::get('/search/{keyword_dokter}', [IndexController::class, 'search']);
 Route::get('/facility', [FacilitiesController::class, 'index']);
 Route::get('/facility/{keyword_facility}', [FacilitiesController::class, 'search']);
 Route::get('/dokter', [DokterController::class, 'index']);
+Route::get('/dokter/{keyword_dokter}', [DokterController::class, 'search']);

@@ -1,4 +1,4 @@
-<footer>
+<footer class="bg-light">
     <div class="container pt-5">
         <div class="row border-bottom pb-3">
             <div class="col-md-4 mb-3">
@@ -19,7 +19,7 @@
                 <p>IGD 24 Jam</p>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg bg-white">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <span>Copyright © 2020 RSU PINDAD | www.yaski.or.id</span>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
