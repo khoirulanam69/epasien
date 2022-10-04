@@ -112,13 +112,35 @@
 
     <div id="booking" class="booking">
         <div class="container py-5">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-md-6">
                     <img src="/images/appointment-image.jpg" style="width: 100%;" alt="image appointment">
                 </div>
                 <div class="col-md-6">
                     <h2 class="text-center mb-5">Booking Periksa</h2>
-                    @include('components.form')
+                    <form action="/send" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="ktp" class="form-label">Nomor KTP</label>
+                            <input type="number" id="ktp" name="no_ktp" class="form-control">
+                            <small id="errMessage" class="text-danger"></small>
+                        </div>
+                        <button type="button" id="btnSubmit" class="btn btn-success mt-4 p-2" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#cekRegistered" disabled>Cek</button>
+                    </form>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="cekRegistered" tabindex="-1" aria-labelledby="cekRegisteredLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="cekRegisteredLabel"></h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body"></div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,7 +156,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="/js/schedule.js"></script>
-    <script src="/js/scroll.js"></script>
+    <script src="/js/booking.js"></script>
 </body>
 @include('components.footer')
 @endsection

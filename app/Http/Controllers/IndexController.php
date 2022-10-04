@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dokter;
+use App\Models\Patien;
+use Facade\FlareClient\Http\Response;
 
 class IndexController extends Controller
 {
@@ -37,5 +39,24 @@ class IndexController extends Controller
             }
             return Response($output);
         }
+    }
+
+    public function store(Request $request)
+    {
+        $isRegister = Patien::where('no_ktp', $request->noKtp)->first();
+        if (!$isRegister) {
+            $message = [
+                'title' => 'KTP Anda belum terdaftar di RS',
+                'body' => 'Silahkan melakukan pendaftaran terlebih dahulu di RSU Pindad Turen',
+                'footer' => '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>'
+            ];
+            return Response($message);
+        }
+        $message = [
+            'title' => 'Data anda sudah terdaftar',
+            'body' => 'Apakah anda ingin lanjut registrasi?',
+            'footer' => '<button type="button" class="btn btn-primary">Ya</button>'
+        ];
+        return Response($message);
     }
 }
