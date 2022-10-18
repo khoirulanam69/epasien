@@ -10,6 +10,7 @@ keyword.addEventListener('keyup', function () {
                                             <tr>
                                                 <th scope="col">Hari Kerja</th>
                                                 <th scope="col">Nama Dokter</th>
+                                                <th scope="col">Poliklinik</th>
                                                 <th scope="col">Jam Mulai</th>
                                                 <th scope="col">Jam Selesai</th>
                                                 <th scope="col">Kuota</th>

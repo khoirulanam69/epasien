@@ -74,7 +74,7 @@
                         <img src="/images/dokter-default.png" class="card-img-top" alt="image dokter">
                         <div class="card-body">
                             <h5 class="card-title">{{$dokter->nm_dokter}}</h5>
-                            <p class="card-text">DOKTER GIGI DAN MULUT</p>
+                            <p class="card-text">{{$dokter->nm_sps}}</p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -118,6 +118,15 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="text-center mb-5">Booking Periksa</h2>
+                    @if (\Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {!! \Session::get('error') !!}
+                    </div>
+                    @elseif (\Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {!! \Session::get('success') !!}
+                    </div>
+                    @endif
                     <form action="/send" method="POST">
                         @csrf
                         <div class="mb-3">
@@ -125,22 +134,34 @@
                             <input type="number" id="ktp" name="no_ktp" class="form-control">
                             <small id="errMessage" class="text-danger"></small>
                         </div>
-                        <button type="button" id="btnSubmit" class="btn btn-success mt-4 p-2" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#cekRegistered" disabled>Cek</button>
-                    </form>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="cekRegistered" tabindex="-1" aria-labelledby="cekRegisteredLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="cekRegisteredLabel"></h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body"></div>
-                                <div class="modal-footer"></div>
+                        <div id="formHidden" style="display: none;">
+                            <div class="mb-3">
+                                <label for="ktp" class="form-label">Poliklinik</label>
+                                <select class="form-select" name="poli" aria-label="Default select example">
+                                    <option selected value="0">Pilih Poli Tujuan</option>
+                                    @foreach($polikliniks as $index => $poliklinik)
+                                    <option value="{{$poliklinik->kd_poli}}">{{$poliklinik->nm_poli}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ktp" class="form-label">Dokter</label>
+                                <select class="form-select" name="dokter" aria-label="Default select example">
+                                    <option selected value="0">Pilih Dokter</option>
+                                    @foreach($dokters as $index => $dokter)
+                                    <option value="{{$dokter->kd_dokter}}">{{$dokter->nm_dokter}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ktp" class="form-label">Tanggal Periksa</label>
+                                <input id="booking-date" class="form-control" name="tgl_periksa" type="date" value="{{date('Y-m-d', strtotime('+1 days'))}}" />
                             </div>
                         </div>
-                    </div>
+                        <button type="button" id="btnCek" class="btn btn-success mt-4 p-2" style="width: 100%;" disabled>Cek</button>
+                        <div id="btnSubmit"></div>
+                    </form>
+                    <small>Note : Periksa jadwal praktek terlebih dahulu</small>
                 </div>
             </div>
         </div>

@@ -18,7 +18,8 @@ use App\Http\Controllers\FacilitiesController;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/search/{keyword_dokter}', [IndexController::class, 'search']);
-Route::get('/send/{noKtp}', [IndexController::class, 'store']);
+Route::get('/cek/{noKtp}', [IndexController::class, 'cekIsRegistered']);
+Route::post('/send', [IndexController::class, 'store']);
 Route::get('/facility', [FacilitiesController::class, 'index']);
 Route::get('/facility/{keyword_facility}', [FacilitiesController::class, 'search']);
 Route::get('/dokter', [DokterController::class, 'index']);

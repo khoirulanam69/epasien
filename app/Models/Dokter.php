@@ -11,13 +11,14 @@ class Dokter extends Model
 
     protected $table = "dokter";
 
-    public static function getJadwal($name)
+    public static function getDokter()
     {
-        return Dokter::join('jadwal', 'jadwal.kd_dokter', '=', 'dokter.kd_dokter')->where('dokter.nm_dokter', 'like', '%' . $name . '%')->get();
+        return Dokter::join('spesialis', 'spesialis.kd_sps', '=', 'dokter.kd_sps');
     }
 
-    public static function getDokter($name)
+    public static function findDokter($name)
     {
-        return Dokter::where('nm_dokter', 'like', '%' . $name . '%')->get();
+        return Dokter::join('spesialis', 'spesialis.kd_sps', '=', 'dokter.kd_sps')
+            ->where('nm_dokter', 'like', '%' . $name . '%');
     }
 }

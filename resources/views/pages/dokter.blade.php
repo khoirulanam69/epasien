@@ -25,7 +25,7 @@
                     <img src="/images/dokter-default.png" class="card-img-top" alt="image dokter">
                     <div class="card-body">
                         <h5 class="card-title"> {{$dokter->nm_dokter}} </h5>
-                        <p class="card-text">DOKTER GIGI DAN MULUT</p>
+                        <p class="card-text">{{$dokter->nm_sps}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">

@@ -9,7 +9,7 @@ class DokterController extends Controller
 {
     public function index()
     {
-        $dokter = Dokter::all();
+        $dokter = Dokter::getDokter()->get();
         $data = [
             'dokter' => $dokter
         ];
@@ -19,7 +19,7 @@ class DokterController extends Controller
     public function search(Request $request)
     {
         $output = "";
-        $dokter = Dokter::getDokter($request->keyword_dokter);
+        $dokter = Dokter::findDokter($request->keyword_dokter)->get();
         if ($dokter) {
             foreach ($dokter as $key => $dokter) {
                 $output .= '<div class="col-md-4 mb-3">' .
